@@ -1,0 +1,1394 @@
+{
+	"info": {
+		"_postman_id": "66114665-c19a-4208-8a37-1d0c5ee97c65",
+		"name": "DESOFS Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18536007",
+		"_collection_link": "https://desofs.postman.co/workspace/DESFOS~5c87cd01-1d1b-4342-8e93-9e1edd24b8fe/collection/18536007-66114665-c19a-4208-8a37-1d0c5ee97c65?action=share&source=collection_link&creator=18536007"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"token\", pm.response.json().token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"customer@mail.com\",\r\n    \"password\":\"6a8eE83IV0vdvkC\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should succeed\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Simao\",\r\n    \"email\": \"simaosantos01@hotmail.com\",\r\n    \"phoneNumber\": \"918589899\",\r\n    \"password\": \"6a8eE83IV0vdvkC\",\r\n    \"role\": \"PROPERTYOWNER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rental Properties",
+			"item": [
+				{
+					"name": "Create Rental Property",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should succeed\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"propertyName\": \"Beautiful Villa 2\",\r\n    \"location\": {\r\n        \"lat\": 40.712776,\r\n        \"lon\": -74.005974\r\n    },\r\n    \"maxGuests\": 5,\r\n    \"numBedrooms\": 3,\r\n    \"numBathrooms\": 2,\r\n    \"propertyDescription\": \"A beautiful villa in the heart of the city.\",\r\n    \"amount\": 200.00,\r\n    \"priceNightIntervalList\":[\r\n        {\r\n            \"price\": 200.00,\r\n            \"interval\": {\r\n                \"from\": \"2025-12-20\",\r\n                \"to\": \"2025-12-21\"\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/rental_property/create",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"rental_property",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Rental Property",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should succeed\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/rental_property/ceed68b4-23fa-4817-ad73-b2907cd0f446",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"rental_property",
+								"ceed68b4-23fa-4817-ad73-b2907cd0f446"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Rental Properties",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should succeed\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/rental_property/all",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"rental_property",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Rental Property By User Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should succeed\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/rental_property/allByUser/014fc674-76c2-42d4-8d89-0faea6fadb3e",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"rental_property",
+								"allByUser",
+								"014fc674-76c2-42d4-8d89-0faea6fadb3e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete (deactivate) Rental Property",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should succeed\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/rental_property/ceed68b4-23fa-4817-ad73-b2907cd0f446",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"rental_property",
+								"ceed68b4-23fa-4817-ad73-b2907cd0f446"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Rental Property",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should succeed\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"propertyName\": \"Beautiful Villa NEW\",\r\n    \"location\": {\r\n        \"lat\": 40.712776,\r\n        \"lon\": -74.0035974\r\n    },\r\n    \"maxGuests\": 5,\r\n    \"numBedrooms\": 32,\r\n    \"numBathrooms\": 22,\r\n    \"propertyDescription\": \"A dsadasidoi of the city.\",\r\n    \"amount\": 20.00,\r\n    \"priceNightIntervalList\": [\r\n        {\r\n            \"price\": 200.00,\r\n            \"interval\": {\r\n                \"from\": \"2025-12-20\",\r\n                \"to\": \"2026-02-20\"\r\n            }\r\n        },\r\n              {\r\n            \"price\": 200.00,\r\n            \"interval\": {\r\n                \"from\": \"2026-12-20\",\r\n                \"to\": \"2027-02-20\"\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/rental_property/d554f904-dc86-4448-b7be-ac70c37bd082",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"rental_property",
+								"d554f904-dc86-4448-b7be-ac70c37bd082"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Unauthorized",
+			"item": [
+				{
+					"name": "Create Rental Property - No Auth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should return 401 - Unauthorized\", function() {\r",
+									"    pm.response.to.have.status(401);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"propertyName\": \"Beautiful Villa 2\",\r\n    \"location\": {\r\n        \"lat\": 40.712776,\r\n        \"lon\": -74.005974\r\n    },\r\n    \"maxGuests\": 5,\r\n    \"numBedrooms\": 3,\r\n    \"numBathrooms\": 2,\r\n    \"propertyDescription\": \"A beautiful villa in the heart of the city.\",\r\n    \"amount\": 200.00,\r\n    \"priceNightIntervalList\":[\r\n        {\r\n            \"price\": 200.00,\r\n            \"interval\": {\r\n                \"from\": \"2025-12-20\",\r\n                \"to\": \"2025-12-21\"\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/rental_property/create",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"rental_property",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Every endpoint that requires authorization should be here and tested to see if a request without token in headers will be rejected with a [<code>401 Unauthorized</code>](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401)",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Poison Message",
+			"item": [
+				{
+					"name": "Create Booking - Poison",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should return 413 - Payload too large\", function() {\r",
+									"    pm.response.to.have.status(413);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"propertyId\": \"632438b2-8e2b-4bc9-b893-5878a0dfe958\",\r\n    \"payment\": {\r\n        \"moneyAmount\": 200,\r\n        \"creditCardNumber\": \"4111111111111111\",\r\n        \"cardVerificationCode\": \"111\",\r\n        \"expirationDate\": \"2025-12-30T00:00\",\r\n        \"email\": \"propertyowner@mail.com\",\r\n        \"personName\": {{$randomLoremParagraphs}},\r\n        \"createdAt\": \"2024-10-15T00:00\"\r\n    },\r\n    \"intervalTime\": {\r\n        \"from\": \"2025-12-20T00:00:00.000+00:00\",\r\n        \"to\": \"2025-12-21T00:00:00.000+00:00\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/booking/add",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"booking",
+								"add"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This folder tests that all endpoints should be defended from poison messages - Requests with large amounts of data should be rejected with [<code>413 Payload Too Large</code>](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/413)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Sql Injection",
+			"item": [
+				{
+					"name": "Get Rental Property By User - SQL Injection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should return 400 - Bad Request\", function() {\r",
+									"    pm.response.to.have.status(400);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/rental_property/allByUser/01'SELECT%20*%20USERS",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"rental_property",
+								"allByUser",
+								"01'SELECT%20*%20USERS"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "For suspected malicious requests, the status [<code>400 Bad Request</code>](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400) should be returned. This includes SQLi and XSS."
+		},
+		{
+			"name": "XSS",
+			"item": [
+				{
+					"name": "Cancel Booking - XSS",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\": \"1a1a1a1a-1a1a-1a1a-1a1a-1a1a1a1a1a1a\",\r\n    \"propertyId\": \"d554f904-dc86-4448-b7be-ac70c37bd082\",\r\n    \"payment\": {\r\n        \"moneyAmount\": 200,\r\n        \"creditCardNumber\": \"4111111111111111\",\r\n        \"cardVerificationCode\": \"111\",\r\n        \"expirationDate\": \"2025-12-30T00:00\",\r\n        \"email\": \"<script>alert('I'm a xss attack')</script>\",\r\n        \"personName\": \"Property Owner\",\r\n        \"createdAt\": \"2024-10-15T00:00\"\r\n    },\r\n    \"intervalTime\": {\r\n        \"from\": \"2026-12-25\",\r\n        \"to\": \"2026-12-28\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/booking/6403207a-8381-4db3-a961-f4e38e86ab06/cancel",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"booking",
+								"6403207a-8381-4db3-a961-f4e38e86ab06",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "For suspected malicious requests, the status [<code>400 Bad Request</code>](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400) should be returned. This includes SQLi and XSS."
+		},
+		{
+			"name": "File too large",
+			"item": [
+				{
+					"name": "New Request",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This folder tests that endpoints should be defended from files to requests should be rejected with [<code>413 Payload Too Large</code>](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/413)"
+		},
+		{
+			"name": "Many retries failed",
+			"item": [
+				{
+					"name": "Get Booking - Want this to run like 50 times",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should succeed\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\": \"1a1a1a1a-1a1a-1a1a-1a1a-1a1a1a1a1a1a\",\r\n    \"propertyId\": \"d554f904-dc86-4448-b7be-ac70c37bd082\",\r\n    \"payment\": {\r\n        \"moneyAmount\": 200,\r\n        \"creditCardNumber\": \"4111111111111111\",\r\n        \"cardVerificationCode\": \"111\",\r\n        \"expirationDate\": \"2025-12-30T00:00\",\r\n        \"email\": \"propertyowner@mail.com\",\r\n        \"personName\": \"Property Owner\",\r\n        \"createdAt\": \"2024-10-15T00:00\"\r\n    },\r\n    \"intervalTime\": {\r\n        \"from\": \"2026-12-25\",\r\n        \"to\": \"2026-12-28\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/booking/ee37d31f-7dd3-4b88-b88a-ba9bb9e3fa96",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"booking",
+								"ee37d31f-7dd3-4b88-b88a-ba9bb9e3fa96"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Should return a [429 Too Many Requests ](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429) response after x requests"
+		},
+		{
+			"name": "Bookings",
+			"item": [
+				{
+					"name": "Create Checkout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should succeed\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"propertyId\": \"0af33b0f-bb8d-42c6-8fef-476c45897ec6\",\r\n    \"intervalTime\": {\r\n        \"from\": \"2025-12-26T00:00:00.000+00:00\",\r\n        \"to\": \"2025-12-28T00:00:00.000+00:00\"\r\n    },\r\n    \"successUrl\": \"http://hello-world.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/booking/stripe-checkout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"booking",
+								"stripe-checkout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should succeed\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\": \"1a1a1a1a-1a1a-1a1a-1a1a-1a1a1a1a1a1a\",\r\n    \"propertyId\": \"d554f904-dc86-4448-b7be-ac70c37bd082\",\r\n    \"payment\": {\r\n        \"moneyAmount\": 200,\r\n        \"creditCardNumber\": \"4111111111111111\",\r\n        \"cardVerificationCode\": \"111\",\r\n        \"expirationDate\": \"2025-12-30T00:00\",\r\n        \"email\": \"propertyowner@mail.com\",\r\n        \"personName\": \"Property Owner\",\r\n        \"createdAt\": \"2024-10-15T00:00\"\r\n    },\r\n    \"intervalTime\": {\r\n        \"from\": \"2026-12-25\",\r\n        \"to\": \"2026-12-28\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/booking/6403207a-8381-4db3-a961-f4e38e86ab06/cancel",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"booking",
+								"6403207a-8381-4db3-a961-f4e38e86ab06",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should succeed\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\": \"1a1a1a1a-1a1a-1a1a-1a1a-1a1a1a1a1a1a\",\r\n    \"propertyId\": \"d554f904-dc86-4448-b7be-ac70c37bd082\",\r\n    \"payment\": {\r\n        \"moneyAmount\": 200,\r\n        \"creditCardNumber\": \"4111111111111111\",\r\n        \"cardVerificationCode\": \"111\",\r\n        \"expirationDate\": \"2025-12-30T00:00\",\r\n        \"email\": \"propertyowner@mail.com\",\r\n        \"personName\": \"Property Owner\",\r\n        \"createdAt\": \"2024-10-15T00:00\"\r\n    },\r\n    \"intervalTime\": {\r\n        \"from\": \"2026-12-25\",\r\n        \"to\": \"2026-12-28\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/booking/ee37d31f-7dd3-4b88-b88a-ba9bb9e3fa96",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"booking",
+								"ee37d31f-7dd3-4b88-b88a-ba9bb9e3fa96"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Booking By User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should succeed\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountId\": \"1a1a1a1a-1a1a-1a1a-1a1a-1a1a1a1a1a1a\",\r\n    \"propertyId\": \"d554f904-dc86-4448-b7be-ac70c37bd082\",\r\n    \"payment\": {\r\n        \"moneyAmount\": 200,\r\n        \"creditCardNumber\": \"4111111111111111\",\r\n        \"cardVerificationCode\": \"111\",\r\n        \"expirationDate\": \"2025-12-30T00:00\",\r\n        \"email\": \"propertyowner@mail.com\",\r\n        \"personName\": \"Property Owner\",\r\n        \"createdAt\": \"2024-10-15T00:00\"\r\n    },\r\n    \"intervalTime\": {\r\n        \"from\": \"2026-12-25\",\r\n        \"to\": \"2026-12-28\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/booking/getAllByUser/f2582df0-d62b-4c4d-8d1e-d3fa2c8b6ae0",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"booking",
+								"getAllByUser",
+								"f2582df0-d62b-4c4d-8d1e-d3fa2c8b6ae0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Create Review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should succeed\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bookingId",
+									"value": "1610c641-a96f-4375-94bb-13ace3cdfe4c",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "This is a review text.",
+									"type": "text"
+								},
+								{
+									"key": "stars",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/ruine/OneDrive/Ambiente de Trabalho/Art/caravana_ac_future_03.jpg"
+								},
+								{
+									"key": "Images",
+									"type": "file",
+									"src": "/C:/Users/ruine/OneDrive/Ambiente de Trabalho/Art/caravana_ac_future_02.jpg"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/ruine/OneDrive/Ambiente de Trabalho/Art/caravana_ac_future_04.jpg"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/ruine/OneDrive/Ambiente de Trabalho/Art/huawei_band_9_01.jpg"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/ruine/OneDrive/Ambiente de Trabalho/Art/huawei_band_9_02.jpg"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/ruine/OneDrive/Ambiente de Trabalho/Art/huawei_band_9_03.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:8080/review/add",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"review",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Review State",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should succeed\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/review/change_state?reviewId=32fec901-6475-4ee5-8ec4-90a79bea2eab&state=ACCEPTED",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"review",
+								"change_state"
+							],
+							"query": [
+								{
+									"key": "reviewId",
+									"value": "32fec901-6475-4ee5-8ec4-90a79bea2eab"
+								},
+								{
+									"key": "state",
+									"value": "ACCEPTED"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2FA",
+			"item": [
+				{
+					"name": "Generate OTP",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"customer@mail.com\",\r\n    \"password\":\"6a8eE83IV0vdvkC\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8080/auth/login/generateOTP",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login",
+								"generateOTP"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"customer@mail.com\",\r\n    \"password\":\"6a8eE83IV0vdvkC\",\r\n    \"phoneNumber\": \"918589899\",\r\n    \"code\": \"693420\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8080/auth/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Should succeed\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Rui Neto\",\r\n    \"email\": \"ruineto@mail.com\",\r\n    \"password\": \"6a8eE83IV0vdvkC\",\r\n    \"phoneNumber\": \"918589899\",\r\n    \"role\": \"PROPERTYOWNER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8080/auth/register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\":\"6a8eE83IV0vdvkC\",\r\n    \"newPassword\":\"Arroz123456!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/update-password",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"update-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"simaosantos01@hotmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/forgot-password",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\":\"Arroz123456!\",\r\n    \"token\": \"KOm/uW9GWXOwaIeEObQzzc6ouT3loo9JeOnskFX6GCvMy6dzray2XCnSlKSeWfycbEjKoWYDly0vP6ev+/0vwS91f5EeZnBu2TT4JCMNYBN+UttbgdSGM86bgVB6uo8s8HIFIcUReVnCVvNVkT9yNW20W91pCtHiTPZb47LksxXgNxJHRf1Mow1owaUy8kvrw/ll0qkYmIzQUcksvbKqXJBnj1jBNbu6G9wFVZvqlWII/hwTQ92qlLFdJEI32IBhrci166HJKtmXQrVpGpLSJyHc5c6/OTXWkNTGyBRffApYYTM9vNtpZlE3tqPzfRwdK04/meNLjvu6gKD2Svyg+dP72v57eXEmsauieImyaNxbVYpka7vObHWbTVyDw5PzZa/kOSWBeP0SaW6tCVz/QhZhE0rUrWPEIX/IQw4rK6mGV430ZUKG+Mrua9Bm76ogaPy8odzt8oP9x04aJZpZo+O6OfjXO8ZLAc558rKpOUuP6SG8SNcF6etU4pE7RoCbVHaTOKvS3Ns/GSvCU2zp+TscOJ3zQ42LYlITCyzHfEmZSVrHWOultR0UUkKYDcbDMUtTuWNN+7lvtgzigL/tjbgyj5Wt9Vxyq0oZVMyI1xIIIekGs+AwA32xQDlQCSCj+rwGi9XiGvwXvlveXfSQgjx1KLbXhrvlFzVqGxYjaAQ=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/reset-password",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"customer@mail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "https://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhMjBmZjgyYi03Mjk3LTQ1YTItYTRiYS1jYzFmM2IwMzA1OTgiLCJleHAiOjE3MTgzODAzNDAsImVtYWlsIjoiY3VzdG9tZXJAbWFpbC5jb20iLCJyb2xlcyI6IkNVU1RPTUVSIn0.gmeGrNhnjfVaRGjzGzJoOgMEtdc0lrE5IvE2eUJNe0-dC0PfqBxVY17EltCPYWRZGp-_tmVV_OGlv3Tjx1bZaAkg0iIQOkktpYHOlmpNBzLIlA_u8hy6YeZeXN7rvbQ_aDaATwRVNEu8pI8Fk6OLrNcSs81MjTUqfRn9Bu5Ww1nQn_EyT0ZLcwh_TaPABGvlPtIHeC6rBf3TXCDN7o1xx13Ey_M3zkQ7Gs9c0XDmyRqzdJoi7tgSXEkFLLHbUT42SIDkrYXS0ZJ_dZoKjtV5WbSdmJhifiqIPOjGBTySN4Y0Gi-1mB-Gi3G1zZ2LVP7EHdCPdrYnKBianAJSiY35po3NHGdMwfsriUfwRMMCP1qIwV_cZlFqzoiQE3Zo7Xjo3TSlTU1PWMbMibaqhb0wvP4dMNEfxTDUhLZbFk_WAZo-QbvOG7EfwH9Ofmcx5gaEyPHeLsWHJjLb3PDO3YKhsm6zMm34b9hZ8COh-lA2Xd7yLoWpS0RUjlPqu-CPpJRsMvhwlcQvWYE_27TXhJXRwGvRNDinOTc2gLNx7E1d8GGrqF7TLBoroHMinZV0Nwv5kosE2O-UPQxIH0LfsPEkIH_FTYPo9i73yrycHyEkb1-d64JHl0ZxVQX5Qw_IR3Q_DNLUbaX2L7WB32Yb5AFbYH6vZERe9uJwYFz7byS-Fmo",
+			"type": "string"
+		}
+	]
+}

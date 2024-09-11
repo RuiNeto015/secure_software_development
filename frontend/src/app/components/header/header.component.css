@@ -1,0 +1,54 @@
+header {
+    background-color: #003b95;
+    color: #fff;
+    width: 100%;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 0.2rem;
+}
+
+.padder {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.my-button,
+.my-button a {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.my-button {
+    height: 1.5rem;
+    width: fit-content;
+    border-radius: 15%;
+    background-color: transparent;
+    border-color: transparent;
+    color: #fff;
+    transition: background-color 0.2s ease;
+}
+
+.my-button:hover {
+    background-color: rgba(3, 75, 182, 0.623)
+}
+
+.tripnau {
+    color: #fff;
+    text-decoration: none;
+}
+
+.login {
+    padding: 5px;
+    background-color: #fff;
+    color: rgb(0, 108, 228);
+    text-decoration: none;
+    border-radius: 5%;
+}

@@ -1,0 +1,39 @@
+
+ ### Release - 3598edf_2024-05-19_23h45m44s
+ #### Contributions
+- [Merge pull request #63 from mei-desofs/dev](https://github.com/mei-desofs/desofs2024_M1A_2/commit/3598edf) **by Simao Santos on 19/05/2024 at 23h29**
+- [Merge pull request #62 from mei-desofs/devSecOps](https://github.com/mei-desofs/desofs2024_M1A_2/commit/0c89ffe) **by Simao Santos on 19/05/2024 at 23h23**
+- [Merge pull request #61 from mei-desofs/devSecOps](https://github.com/mei-desofs/desofs2024_M1A_2/commit/aa398e0) **by Simao Santos on 19/05/2024 at 23h20**
+- [Merge pull request #60 from mei-desofs/feat/#41/home-page](https://github.com/mei-desofs/desofs2024_M1A_2/commit/00bd711) **by Simao Santos on 19/05/2024 at 23h14**
+- [Merge pull request #59 from mei-desofs/fix_cors](https://github.com/mei-desofs/desofs2024_M1A_2/commit/4d7c8c2) **by Simao Santos on 19/05/2024 at 22h00**
+- [Merge pull request #58 from mei-desofs/feat/#42/review-page](https://github.com/mei-desofs/desofs2024_M1A_2/commit/bc1846c) **by Afonso Machado [1190326] on 19/05/2024 at 19h26**
+- [Merge pull request #53 from mei-desofs/feat/#41/home-page](https://github.com/mei-desofs/desofs2024_M1A_2/commit/af888c6) **by Simao Santos on 19/05/2024 at 19h07**
+- [Merge pull request #57 from mei-desofs/feat/#45/booking-page](https://github.com/mei-desofs/desofs2024_M1A_2/commit/2f8eacc) **by Simao Santos on 19/05/2024 at 18h52**
+- [Merge pull request #55 from mei-desofs/feat/#34/unit-tests](https://github.com/mei-desofs/desofs2024_M1A_2/commit/c53a8bc) **by Simao Santos on 19/05/2024 at 17h45**
+- [Merge pull request #56 from mei-desofs/devSecOps](https://github.com/mei-desofs/desofs2024_M1A_2/commit/43b88cd) **by Simao Santos on 19/05/2024 at 17h09**
+- [Merge pull request #49 from mei-desofs/feat/#48/improve-frontend](https://github.com/mei-desofs/desofs2024_M1A_2/commit/ba87fb0) **by Domingos Machado on 19/05/2024 at 15h55**
+- [Merge pull request #54 from mei-desofs/feat/#52/view_all_properties](https://github.com/mei-desofs/desofs2024_M1A_2/commit/3136740) **by Nuno Ribeiro [1230201] on 19/05/2024 at 14h45**
+- [Merge pull request #51 from mei-desofs/feat/#44/backend_create_review_logic](https://github.com/mei-desofs/desofs2024_M1A_2/commit/ff27547) **by Rui Neto [1230211] on 19/05/2024 at 05h28**
+- [Merge pull request #50 from mei-desofs/feat/#44/backend_create_review_logic](https://github.com/mei-desofs/desofs2024_M1A_2/commit/7dbf245) **by Rui Neto [1230211] on 19/05/2024 at 04h21**
+- [Merge pull request #46 from mei-desofs/devSecOps](https://github.com/mei-desofs/desofs2024_M1A_2/commit/7f83fce) **by Simao Santos on 18/05/2024 at 23h35**
+- [Merge pull request #43 from mei-desofs/devSecOps](https://github.com/mei-desofs/desofs2024_M1A_2/commit/97ec689) **by Simao Santos on 18/05/2024 at 18h31**
+- [Merge pull request #40 from mei-desofs/feat/#4/register-page](https://github.com/mei-desofs/desofs2024_M1A_2/commit/e0893ba) **by Simao Santos on 18/05/2024 at 16h11**
+- [Merge pull request #38 from mei-desofs/devSecOps](https://github.com/mei-desofs/desofs2024_M1A_2/commit/a8a4697) **by Simao Santos on 17/05/2024 at 16h59**
+- [Merge pull request #36 from mei-desofs/feat/#31/backend_booking_endpoints](https://github.com/mei-desofs/desofs2024_M1A_2/commit/0fc1d52) **by Rui Neto [1230211] on 17/05/2024 at 16h22**
+- [Merge pull request #37 from mei-desofs/devSecOps](https://github.com/mei-desofs/desofs2024_M1A_2/commit/2191c37) **by Simao Santos on 17/05/2024 at 16h05**
+- [Merge pull request #33 from mei-desofs/feat/#27/rental_property_creation_update](https://github.com/mei-desofs/desofs2024_M1A_2/commit/51f4f40) **by Rui Neto [1230211] on 17/05/2024 at 01h01**
+- [Merge pull request #32 from mei-desofs/feat/#3/login](https://github.com/mei-desofs/desofs2024_M1A_2/commit/63459a6) **by Domingos Machado on 16/05/2024 at 22h27**
+- [Merge pull request #30 from mei-desofs/feat/#17/backend_auth_update](https://github.com/mei-desofs/desofs2024_M1A_2/commit/783d57f) **by Rui Neto [1230211] on 16/05/2024 at 21h35**
+- [Merge pull request #29 from mei-desofs/feat/#23/auth-guard](https://github.com/mei-desofs/desofs2024_M1A_2/commit/5c5daca) **by Domingos Machado on 16/05/2024 at 20h31**
+- [Merge pull request #28 from mei-desofs/feat/#27/rental_property_creation](https://github.com/mei-desofs/desofs2024_M1A_2/commit/3496622) **by Rui Neto [1230211] on 16/05/2024 at 18h56**
+- [Merge pull request #25 from mei-desofs/feat/#24/backend_exception_interceptor](https://github.com/mei-desofs/desofs2024_M1A_2/commit/aeff8dd) **by Nuno Ribeiro [1230201] on 16/05/2024 at 17h46**
+- [Merge pull request #26 from mei-desofs/feat/#17/backend_auth](https://github.com/mei-desofs/desofs2024_M1A_2/commit/b635e14) **by Rui Neto [1230211] on 16/05/2024 at 03h34**
+- [Merge pull request #22 from mei-desofs/feat/#19/rate-limiting-interceptor](https://github.com/mei-desofs/desofs2024_M1A_2/commit/930f55b) **by Domingos Machado on 15/05/2024 at 20h55**
+- [Merge pull request #21 from mei-desofs/feat/#18/auth-interceptor](https://github.com/mei-desofs/desofs2024_M1A_2/commit/5b339f1) **by Domingos Machado on 15/05/2024 at 20h51**
+- [Merge pull request #20 from mei-desofs/feat/#13/some_domains](https://github.com/mei-desofs/desofs2024_M1A_2/commit/f1dbbca) **by Nuno Ribeiro [1230201] on 15/05/2024 at 01h37**
+- [Merge pull request #16 from mei-desofs/feat/#13/some_domains](https://github.com/mei-desofs/desofs2024_M1A_2/commit/f7b9be9) **by Nuno Ribeiro [1230201] on 14/05/2024 at 02h43**
+- [Merge pull request #15 from mei-desofs/feat/#14/init_db](https://github.com/mei-desofs/desofs2024_M1A_2/commit/967068a) **by Rui Neto [1230211] on 14/05/2024 at 01h46**
+- [Merge pull request #12 from mei-desofs/feat/#10/init_backend](https://github.com/mei-desofs/desofs2024_M1A_2/commit/6a34f27) **by Nuno Ribeiro [1230201] on 13/05/2024 at 23h03**
+- [Merge pull request #9 from mei-desofs/feat/#2/base-frontend-application](https://github.com/mei-desofs/desofs2024_M1A_2/commit/e6d813a) **by Domingos Machado on 05/05/2024 at 20h05**
+- [Merge pull request #8 from mei-desofs/feat/#7/add-dependabot](https://github.com/mei-desofs/desofs2024_M1A_2/commit/6ee75b6) **by Domingos Machado on 04/05/2024 at 15h11**
+- [Merge pull request #6 from mei-desofs/feat/#1/workflow_frontend](https://github.com/mei-desofs/desofs2024_M1A_2/commit/352afd7) **by Domingos Machado on 03/05/2024 at 22h55**

@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+
+:host {
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-card {
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    width: 40%;
+    min-height: 400px;
+    height: auto;
+    background-color: #ffffff;
+    padding: 10px 30px;
+}
+
+.card-title {
+    padding: 10px;
+}
+
+.card-title h1 {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.form-group input {
+    margin: 5px 0;
+    width: 100%;
+    background-color: #e2e2e2;
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+}
+
+.form-group input[type="submit"] {
+    background-color: #4796ff;
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    padding: 8px 15px;
+    width: 100%;
+}
+
+.form-group input[type="submit"]:disabled {
+    background-color: #6eabfc;
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    padding: 8px 15px;
+    width: 100%;
+}
+
+.card-terms {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.card-terms span {
+    margin: 5px;
+    font-size: 13px;
+}
+
+.password-overlay {
+    position: relative; /* Change from relative to absolute */
+    top: 100%; /* Position it below the input */
+    left: 0; /* Align it with the left edge of the input */
+    width: 100%; /* Make it span the full width of the input */
+    background-color: #fff; /* Set background color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a shadow for better visibility */
+    z-index: 1; /* Ensure it appears above other elements */
+}
+
+.password-overlay ul {
+    list-style-type: none;
+    padding: 5px; /* Add some padding */
+}
+
+.password-overlay ul li {
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.password-overlay .icon {
+    margin-left: 5px;
+}

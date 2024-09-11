@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Property</title>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .property-image {
+            width: 100%;
+            height: auto;
+        }
+        .property-info {
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div *ngIf="property" class="container">
+        <h1>Rent {{ property!.propertyName }}</h1>
+        <img [src]="'../../assets/images/RentalProperty' + propertyIndex + '.jpg'" alt="Property Image" class="property-image">
+        <div class="property-info">
+            <p>{{ property!.propertyDescription }}</p>
+            <p><strong>Price:</strong> ${{ property!.amount }} / night</p>
+        </div>
+        <form [formGroup]="form">
+            <div class="form-group">
+                <label for="checkin">Check-in Date</label>
+                <input type="date" id="checkin" formControlName="from" required>
+            </div>
+            <div class="form-group">
+                <label for="checkout">Check-out Date</label>
+                <input type="date" id="checkout" formControlName="to" required>
+            </div>
+            <!-- <div class="form-group">
+                <label for="guests">Number of Guests</label>
+                <select id="guests">
+                    <option *ngFor="let guest of [1,2,3,4,5,6]" [value]="guest">{{ guest }} Guest{{ guest > 1 ? 's' : '' }}</option>
+                </select>
+            </div> -->
+        </form>
+        <button (click)="onSubmit()">Rent Now</button>
+    </div>
+</body>
+</html>
+

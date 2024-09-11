@@ -1,0 +1,94 @@
+server:
+  ssl:
+    enabled: true
+    key-store-type: PKCS12
+    key-store: classpath:keystore/desofs.p12
+    key-store-password: ${P12_CERT_PASSWORD}
+    key-alias: desofs
+
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: backend
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql=true:sql:
+    init:
+      mode: never
+  profiles:
+    active: bootstrap
+  database:
+    entityManager: javax.persistence.EntityManagerFactory
+    transactionManager: org.springframework.orm.jpa.JpaTransactionManager
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_HOST}:3306/database
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  rabbitmq:
+    exchange:
+      name: logs_exchange
+    queue:
+      name: logs_queue
+    host: ${RABBITMQ_HOST}
+    port: 5672
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+  web:
+    resources:
+      static-locations[0]: "file:src/main/resources/static/"
+      static-locations[1]: "classpath:/static/"
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui
+
+jwt:
+  private:
+    key: ${RSA_PRIVATE_KEY}
+  public:
+    key: ${RSA_PUBLIC_KEY}
+  exp-business-admin: 604800 #3600
+  exp-property-owner: 604800 #86400
+  exp-customer: 604800
+
+xss:
+  endpoints-to-ignore: '/auth/login, /rental_property/all, /booking/getAllByUser'
+  fields-to-ignore: 'password, Id'
+
+http-size-request:
+  limit-mb: 2
+  endpoints-to-ignore: '/review/add'
+
+stripe:
+  apiKey: ${STRIPE_API_KEY}
+  webhookSecret: ${STRIPE_WEBHOOK_SECRET}
+
+logs:
+  private-key: ${RSA_LOGS_PRIVATE_KEY}
+  public-key: ${RSA_LOGS_PUBLIC_KEY}
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+twilio:
+  account_sid: ${TWILIO_ACCOUNT_SID}
+  auth_token: ${TWILIO_AUTH_TOKEN}
+  service_sid: ${TWILIO_SERVICE_SID}
+
+mailSenderApiKey: ${MAIL_SENDER_API_KEY}
+
+rate_limit: 60

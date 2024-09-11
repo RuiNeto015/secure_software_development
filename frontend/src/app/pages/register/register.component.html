@@ -1,0 +1,41 @@
+<div class="signup-card">
+    <div class="card-title">
+        <h1>Create Account</h1>
+        <span>Already have an account? <a routerLink="/login">Sign In</a></span>
+    </div>
+    <form class="form-group" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <input type="text" name="name" placeholder="Name" formControlName="name">
+        <input type="email" name="email" placeholder="Email" formControlName="email">
+        <div style="display: flex;">
+            <input type="radio" id="burro" name="role" value="CUSTOMER" formControlName="role">
+            <label for="burro" style="font-size: 13px;">Customer</label>
+            <input type="radio" id="owner" name="role" value="PROPERTYOWNER" formControlName="role">
+            <label id="owner" style="font-size: 13px;">Property Owner</label>
+        </div>
+        @if(submitted && form.controls.email.getError('email')) {
+        <label class="error">Please enter a valid email</label>
+        }
+        <input type="password" name="password" placeholder="Password" formControlName="password"
+            (focus)="showPasswordRequirements()" (blur)="hidePasswordRequirements()">
+        @if(showOverlay){
+        <div class="password-overlay">
+            <ul>
+                @for(requirement of passwordRequirements; let i = $index; track requirement){
+                <li>
+                    {{ requirement.requirement }} <span class="icon">{{ requirement.fulfilled ? '✔' : '✘' }}</span>
+                </li>
+                }
+            </ul>
+        </div>
+        }
+        <input type="password" name="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword">
+        @if(submitted && form.hasError('matchingPasswords')){
+        <label class="error">Passwords must match!</label>
+        }
+        <input type="submit" value="Signup" >
+    </form>
+    <div class="card-terms" [formGroup]="tosForm">
+        <input type="checkbox" formControlName="tos"> <span>I have read and agree to the <a
+                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs">Terms of Service</a></span>
+    </div>
+</div>

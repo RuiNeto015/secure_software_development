@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Rentals</title>
+</head>
+<body>
+    <div class="container">
+      <h1>Available Properties for Rent</h1>
+      <div *ngIf="properties" class="property-list">
+        <div *ngFor="let property of properties; let i = index" class="property-item" >
+          <img [src]="'../../assets/images/RentalProperty' + i + '.jpg'" alt="Property Image" class="property-image">
+          <div class="property-info">
+            <div>
+              <div class="property-title">{{ property!.propertyName }}</div>
+              <div class="property-description">{{ property!.propertyDescription }}</div>
+              <div class="property-location">Location: Lat {{ property!.location.lat }}, Lon {{ property!.location.lon }}</div>
+              <div class="property-max-guests">Max Guests: {{ property!.maxGuests }}</div>
+            </div>
+            <div>
+              <div class="property-price">${{ property!.amount }} / night</div>
+              <button class="rent-button" (click)="rentProperty(i)">Rent</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

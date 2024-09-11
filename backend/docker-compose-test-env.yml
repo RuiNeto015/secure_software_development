@@ -1,0 +1,35 @@
+name: 'desofs'
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+
+  rabbit:
+    container_name: rabbit
+    image: rabbitmq:3.13-management
+    environment:
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+    ports:
+      - 5672:5672
+      - 15672:15672    
+
+  backend:
+    container_name: backend
+    image: simaosantos1230212/desofs-backend:${BACKEND_VERSION}
+    restart: always
+    depends_on:
+      - mysql
+      - rabbit
+    ports:
+      - "8080:8080"
+
